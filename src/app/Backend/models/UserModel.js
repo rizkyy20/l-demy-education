@@ -4,9 +4,6 @@ import db from "../config/Database.js";
 const { DataTypes } = Sequelize;
 
 const Users = db.define('users',{
-    role:{
-        type: DataTypes.ENUM('guru', 'murid')
-    },
     name:{
         type: DataTypes.STRING
     },
@@ -16,12 +13,11 @@ const Users = db.define('users',{
     password:{
         type: DataTypes.STRING
     },
-    refresh_token:{
-        type: DataTypes.TEXT
-    }
+    role:{
+        type: DataTypes.ENUM('murid', 'guru')
+    },
 },{
     freezeTableName:true
-});
-
+})
 
 export default Users;
