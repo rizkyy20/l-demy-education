@@ -6,15 +6,26 @@ const { DataTypes } = Sequelize;
 const Users = db.define('users',{
     name:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
     },
     email:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true,
+        validate: {
+            notEmpty: true,
+            isEmail: true
+        }
     },
     password:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
     },
     role:{
         type: DataTypes.ENUM('murid', 'guru'),

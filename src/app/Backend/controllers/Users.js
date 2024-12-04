@@ -17,6 +17,17 @@ export const Register = async(req, res) => {
 
     const { name, email, password, confPassword, role } = req.body;
 
+    // Validasi field tidak boleh kosong
+    if(!name) return res.status(400).json({msg: "Nama harus diisi!"});
+    if(!email) return res.status(400).json({msg: "Email harus diisi!"});
+    if(!password) return res.status(400).json({msg: "Password harus diisi!"});
+    if(!confPassword) return res.status(400).json({msg: "Confirm Password harus diisi!"});
+
+     // Validasi format email
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({msg: "Format email tidak valid!"});
+    }
+
     if(!role) return res.status(400).json({msg: "Role harus diisi!"});
     if(!['guru', 'murid'].includes(role)) return res.status(400).json({msg: "Role harus guru atau murid!"});
 
