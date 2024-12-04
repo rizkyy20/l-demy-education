@@ -14,8 +14,16 @@
   }
 }
 
+.bg-login {
+  background-color: rgba(234, 234, 234, 0.5);
+}
+
+.user {
+  position: absolute;
+  right: 30rem;
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background-color: #eaeaea;
   font-family: Arial, Helvetica, sans-serif;
 }
