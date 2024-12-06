@@ -4,6 +4,7 @@ import cors from "cors";
 import db from "./config/Database.js";
 import router from "./routes/index.js";
 import Class from "./models/ClassModel.js";
+import Users from "./models/UserModel.js";
 dotenv.config();
 const app = express();
 const port = 3002;
@@ -12,6 +13,7 @@ try {
     await db.authenticate();
     console.log('Database Connected...');
     await Class.sync();
+    //await Users.sync();
 } catch (error) {
     console.error(error);
 }

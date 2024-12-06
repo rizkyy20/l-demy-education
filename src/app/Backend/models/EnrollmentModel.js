@@ -22,6 +22,10 @@ const Enrollment = db.define('enrollment', {
             key: 'id'
         }
     },
+    status: {
+        type: DataTypes.ENUM('pending', 'approved', 'rejected'),
+        defaultValue: 'pending'
+    }
 }, {
     freezeTableName: true
 })
