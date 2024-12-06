@@ -73,3 +73,22 @@ export const updateEnrollmentStatus = async(req, res) => {
     }
 }
 
+//Lihat daftar kelas yg diikuri murid
+export const getMyClasses = async(req, res) => {
+    const studentId = req.userId;
+
+    try {
+        const enrollments = await Enrollment.findAll({
+            where: {
+                studentId: studentId
+            },
+            include: [{
+                model: Class,
+                attributes: ['name', 'description']
+            }]
+        });
+        res.json(enrollments);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
+}

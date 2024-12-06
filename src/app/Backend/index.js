@@ -5,6 +5,7 @@ import db from "./config/Database.js";
 import router from "./routes/index.js";
 import Class from "./models/ClassModel.js";
 import Users from "./models/UserModel.js";
+import Enrollment from "./models/EnrollmentModel.js";
 dotenv.config();
 const app = express();
 const port = 3002;
@@ -14,6 +15,7 @@ try {
     console.log('Database Connected...');
     await Class.sync();
     //await Users.sync();
+    await Enrollment.sync();
 } catch (error) {
     console.error(error);
 }
