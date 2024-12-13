@@ -3,6 +3,8 @@ import { getUsers, Register, Login } from "../controllers/Users.js";
 import { verifyToken } from "../middleware/VerifyToken.js";
 import { createClass, deleteClass, getTeacherClasses, updateClass } from "../controllers/ClassController.js";
 import { enrollClass, getMyClasses, updateEnrollmentStatus } from "../controllers/EnrollmentController.js";
+import { upload } from "../middleware/FileUpload.js";
+import { uploadMedia, getMediaByClass, deleteMedia } from "../controllers/MediaController.js";
 
 const router = express.Router();
 
@@ -18,5 +20,9 @@ router.delete('/class/:id', verifyToken, deleteClass);
 router.post('/enroll', verifyToken, enrollClass);
 router.patch('/enrollment/status', verifyToken, updateEnrollmentStatus);
 router.get('/my-classes', verifyToken, getMyClasses);
+//Media routes
+router.post('/upload', verifyToken, upload.single('file'), uploadMedia);
+router.get('/media/class/:classId', verifyToken, getMediaByClass);
+router.delete('/media/:id', verifyToken, deleteMedia);
 
 export default router;
