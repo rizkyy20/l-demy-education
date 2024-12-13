@@ -5,6 +5,8 @@ import { createClass, deleteClass, getTeacherClasses, updateClass } from "../con
 import { enrollClass, getMyClasses, updateEnrollmentStatus } from "../controllers/EnrollmentController.js";
 import { upload } from "../middleware/FileUpload.js";
 import { uploadMedia, getMediaByClass, deleteMedia } from "../controllers/MediaController.js";
+import { createAssignment, getClassAssignment } from "../controllers/AssignmentController.js";
+import { submitAssignment, gradeSubmission } from "../controllers/SubmissionController.js";
 
 const router = express.Router();
 
@@ -24,5 +26,11 @@ router.get('/my-classes', verifyToken, getMyClasses);
 router.post('/upload', verifyToken, upload.single('file'), uploadMedia);
 router.get('/media/class/:classId', verifyToken, getMediaByClass);
 router.delete('/media/:id', verifyToken, deleteMedia);
+//Assignment routes
+router.post('/assignment', verifyToken, createAssignment);
+router.get('/assignment/:classId', verifyToken, getClassAssignment);
+//submission routes
+router.post('/submit', verifyToken, upload.single('file'), submitAssignment);
+router.post('/grade', verifyToken, gradeSubmission);
 
 export default router;
