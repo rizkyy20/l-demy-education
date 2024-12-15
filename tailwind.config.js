@@ -10,12 +10,20 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        kedua: "#42C2FF"
       },
       backgroundColor: {
         login: "#eaeaea",
+        hover: "#42C2FF",
+        navbar: "#F5F5F5",
+        abu: "#BCCCDC"
       },
       width: {
         submit: "8rem"
+      },
+      fontFamily: {
+        inter: 'Inter, sans-serif',
+        popin: 'Poppins, sans-serif',
       }
     },
   },

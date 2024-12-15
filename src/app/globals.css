@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,4 +28,35 @@
 body {
   background-color: #eaeaea;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+@media  (max-width: 768px) {
+  #gambarbljr {
+    width: 300px;
+    height: 300px;
+  }
+
+  #a {
+    display: none;
+  }
+
+  #card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  #a {
+    display: none;
+  }
+
+  #card {
+    display: flex;
+    flex-direction: column;
+  }
 }
